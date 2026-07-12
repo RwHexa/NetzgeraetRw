@@ -1,0 +1,10 @@
+# Betriebssystem / Editor
+Thumbs.db
+desktop.ini
+.DS_Store
+ehthumbs.db
+
+# Office-/Temp-Reste
+~$*
+*.tmp
+*.bak

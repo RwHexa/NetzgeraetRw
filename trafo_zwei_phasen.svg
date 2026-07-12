@@ -1,0 +1,81 @@
+<svg role="img" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="'Segoe UI', system-ui, sans-serif">
+  <title>Energiespeicherung und -ubertragung im Sperrwandler-Trafo</title>
+  <desc>Phase 1: Q1 leitet, Primarstrom rampt hoch, Energie im Luftspalt gespeichert, D2 sperrt. Phase 2: Q1 sperrt, der zusammenbrechende Fluss treibt Strom in die Sekundarwicklung, D2 leitet, Energie geht an den 12-V-Ausgang.</desc>
+  <style>
+    :root{--p:#1c1c1c;--s:#5a5f66;--t:#4a4f55;--b:#c2c6cc;}
+    .t{font-size:14px;fill:var(--p);} .ts{font-size:12px;fill:var(--s);}
+    .th{font-size:14px;font-weight:600;fill:var(--p);}
+    .box{fill:#f3f4f6;stroke:#c2c6cc;stroke-width:1;}
+    .c-gray>rect{fill:#d6d9dd;stroke:#9aa0a6;stroke-width:1;}
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <g id="skel">
+      <g class="c-gray">
+        <rect x="97" y="92" width="116" height="12" rx="2"/>
+        <rect x="97" y="92" width="13" height="148" rx="2"/>
+        <rect x="200" y="92" width="13" height="148" rx="2"/>
+        <rect x="97" y="228" width="50" height="12" rx="2"/>
+        <rect x="163" y="228" width="50" height="12" rx="2"/>
+      </g>
+      <g fill="none" stroke="var(--t)" stroke-width="2">
+        <ellipse cx="103.5" cy="128" rx="15" ry="7"/><ellipse cx="103.5" cy="150" rx="15" ry="7"/><ellipse cx="103.5" cy="172" rx="15" ry="7"/>
+        <ellipse cx="206.5" cy="128" rx="15" ry="7"/><ellipse cx="206.5" cy="150" rx="15" ry="7"/><ellipse cx="206.5" cy="172" rx="15" ry="7"/>
+      </g>
+      <g fill="none" stroke="var(--t)" stroke-width="1.5">
+        <path d="M103.5 121 V74 H26"/>
+        <path d="M103.5 179 V258 H86"/>
+        <path d="M206.5 121 V74 H226"/>
+        <path d="M206.5 179 V258 H256"/>
+        <path d="M60 258 H24"/>
+        <path d="M240 74 H256"/>
+        <path d="M256 74 V90"/><path d="M256 100 V258"/>
+        <line x1="246" y1="90" x2="266" y2="90"/><line x1="246" y1="100" x2="266" y2="100"/>
+        <path d="M226 67 L226 81 L240 74 Z"/><line x1="240" y1="66" x2="240" y2="82"/>
+      </g>
+      <rect x="60" y="249" width="26" height="18" rx="3" class="box"/>
+      <text class="ts" x="73" y="258" text-anchor="middle" dominant-baseline="central">Q1</text>
+      <text class="ts" x="20" y="70">+325 V</text>
+      <text class="ts" x="18" y="262">GND</text>
+      <text class="ts" x="233" y="60" text-anchor="middle">D2</text>
+      <text class="ts" x="262" y="70">+12 V</text>
+      <text class="ts" x="272" y="98">C6</text>
+      <text class="ts" x="262" y="262">GND</text>
+    </g>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="420" fill="#ffffff"/>
+
+  <text class="th" x="155" y="32" text-anchor="middle">Phase 1 · Q1 leitet</text>
+  <text class="ts" x="155" y="48" text-anchor="middle">Energie speichern</text>
+  <text class="th" x="495" y="32" text-anchor="middle">Phase 2 · Q1 sperrt</text>
+  <text class="ts" x="495" y="48" text-anchor="middle">Energie abgeben</text>
+  <line x1="340" y1="26" x2="340" y2="412" stroke="var(--b)" stroke-width="1" stroke-dasharray="4 5"/>
+
+  <use href="#skel" xlink:href="#skel"/>
+  <use href="#skel" xlink:href="#skel" x="340"/>
+
+  <ellipse cx="155" cy="234" rx="13" ry="9" fill="#E8593C" opacity="0.8"/>
+  <text class="ts" x="155" y="256" text-anchor="middle">Luftspalt</text>
+  <line x1="103.5" y1="132" x2="103.5" y2="167" stroke="#E8593C" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text class="th" x="52" y="152" fill="#E8593C">i&#8321; &#8593;</text>
+  <path d="M150 205 C138 170 138 135 152 120" fill="none" stroke="#E8593C" stroke-width="1.6" opacity="0.7" marker-end="url(#arrow)"/>
+  <text class="ts" x="166" y="150" fill="#E8593C">&#934; &#8593;</text>
+  <text class="ts" x="73" y="280" text-anchor="middle" fill="#E8593C">leitet</text>
+  <g stroke="#d1495b" stroke-width="1.6"><line x1="228" y1="69" x2="238" y2="79"/><line x1="238" y1="69" x2="228" y2="79"/></g>
+  <text class="ts" x="233" y="98" text-anchor="middle" fill="#d1495b">D2 sperrt</text>
+  <text class="ts" x="155" y="404" text-anchor="middle" fill="var(--p)">&#9312; Energie im Luftspalt gespeichert · E = &#189;·L·i&#178;</text>
+
+  <ellipse cx="495" cy="234" rx="13" ry="9" fill="#E8593C" opacity="0.25"/>
+  <text class="ts" x="495" y="256" text-anchor="middle">Luftspalt</text>
+  <text class="th" x="392" y="152" fill="var(--s)">i&#8321; = 0</text>
+  <text class="ts" x="413" y="280" text-anchor="middle" fill="#d1495b">sperrt</text>
+  <path d="M490 120 C476 135 476 170 490 205" fill="none" stroke="#E8593C" stroke-width="1.6" opacity="0.7" marker-end="url(#arrow)"/>
+  <text class="ts" x="505" y="150" fill="#E8593C">&#934; &#8595;</text>
+  <line x1="546.5" y1="167" x2="546.5" y2="132" stroke="#E8593C" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="556" y1="74" x2="574" y2="74" stroke="#E8593C" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M566 67 L566 81 L580 74 Z" fill="#E8593C"/>
+  <text class="th" x="500" y="200" fill="#E8593C">i&#8322; &#8594;</text>
+  <text class="ts" x="573" y="98" text-anchor="middle" fill="#E8593C">D2 leitet</text>
+  <text class="ts" x="495" y="404" text-anchor="middle" fill="var(--p)">&#9313; Energie fließt zur Sekundärseite &#8594; 12 V</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg role="img" viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
+  <title>Sicherer Mess-Ablauf zur Fehlersuche</title>
+  <desc>Siebenschrittiger Ablauf: 1 Trennen und C2 entladen, 2 statische Pruefung, 3 Zwischenkreis C2, 4 VCC am OB2263, 5 Gate und Schalten, 6 Ausgang 12 V, 7 Regelkreis. Amber = unter Netzspannung, grau = spannungsfrei.</desc>
+  <style>
+    :root{--p:#1c1c1c;--s:#5a5f66;--t:#4a4f55;--b:#c2c6cc;}
+    .ts{font-size:12px;fill:var(--s);} .th{font-size:14px;font-weight:600;fill:var(--p);}
+    .arr{stroke:var(--t);stroke-width:1.5;fill:none;}
+    .lead{stroke:var(--b);stroke-width:1;stroke-dasharray:3 3;fill:none;}
+    .c-amber>rect,rect.c-amber{fill:#fbe7cf;stroke:#d38b1f;stroke-width:1.2;}
+    .c-amber .th{fill:#7a4a09;} .c-amber .ts{fill:#8a5a1a;}
+    .c-gray>rect,rect.c-gray{fill:#e5e7eb;stroke:#9aa0a6;stroke-width:1.2;}
+    .c-gray .th{fill:#33383f;} .c-gray .ts{fill:#5a5f66;}
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect x="0" y="0" width="500" height="700" fill="#ffffff"/>
+
+  <text class="th" x="250" y="28" text-anchor="middle" font-size="16">Sicherer Mess-Ablauf zur Fehlersuche</text>
+  <rect x="70" y="46" width="14" height="10" rx="2" class="c-amber"/>
+  <text class="ts" x="90" y="51" dominant-baseline="central">unter Spannung (Netz)</text>
+  <rect x="250" y="46" width="14" height="10" rx="2" class="c-gray"/>
+  <text class="ts" x="270" y="51" dominant-baseline="central">spannungsfrei</text>
+
+  <g class="c-amber"><rect x="90" y="76" width="200" height="54" rx="8"/>
+    <text class="th" x="190" y="97" text-anchor="middle" dominant-baseline="central">&#9312; Trennen &amp; C2 entladen</text>
+    <text class="ts" x="190" y="115" text-anchor="middle" dominant-baseline="central">spannungsfrei herstellen</text></g>
+  <g class="c-gray"><rect x="90" y="158" width="200" height="54" rx="8"/>
+    <text class="th" x="190" y="179" text-anchor="middle" dominant-baseline="central">&#9313; Statische Pr&#252;fung</text>
+    <text class="ts" x="190" y="197" text-anchor="middle" dominant-baseline="central">F1 &#183; BR1 &#183; Q1 &#183; D2 (Ohm)</text></g>
+  <g class="c-amber"><rect x="90" y="240" width="200" height="54" rx="8"/>
+    <text class="th" x="190" y="261" text-anchor="middle" dominant-baseline="central">&#9314; Zwischenkreis C2</text>
+    <text class="ts" x="190" y="279" text-anchor="middle" dominant-baseline="central">~325 V DC?</text></g>
+  <g class="c-amber"><rect x="90" y="322" width="200" height="54" rx="8"/>
+    <text class="th" x="190" y="343" text-anchor="middle" dominant-baseline="central">&#9315; VCC am OB2263</text>
+    <text class="ts" x="190" y="361" text-anchor="middle" dominant-baseline="central">Anlauf / dauerhaft?</text></g>
+  <g class="c-amber"><rect x="90" y="404" width="200" height="54" rx="8"/>
+    <text class="th" x="190" y="425" text-anchor="middle" dominant-baseline="central">&#9316; Gate &amp; Schalten</text>
+    <text class="ts" x="190" y="443" text-anchor="middle" dominant-baseline="central">Rechteck ~65 kHz?</text></g>
+  <g class="c-gray"><rect x="90" y="486" width="200" height="54" rx="8"/>
+    <text class="th" x="190" y="507" text-anchor="middle" dominant-baseline="central">&#9317; Ausgang 12 V</text>
+    <text class="ts" x="190" y="525" text-anchor="middle" dominant-baseline="central">H&#246;he + Ripple</text></g>
+  <g class="c-gray"><rect x="90" y="568" width="200" height="54" rx="8"/>
+    <text class="th" x="190" y="589" text-anchor="middle" dominant-baseline="central">&#9318; Regelkreis</text>
+    <text class="ts" x="190" y="607" text-anchor="middle" dominant-baseline="central">TL431 &#183; Optokoppler</text></g>
+
+  <line class="arr" x1="190" y1="130" x2="190" y2="156" marker-end="url(#arrow)"/>
+  <line class="arr" x1="190" y1="212" x2="190" y2="238" marker-end="url(#arrow)"/>
+  <line class="arr" x1="190" y1="294" x2="190" y2="320" marker-end="url(#arrow)"/>
+  <line class="arr" x1="190" y1="376" x2="190" y2="402" marker-end="url(#arrow)"/>
+  <line class="arr" x1="190" y1="458" x2="190" y2="484" marker-end="url(#arrow)"/>
+  <line class="arr" x1="190" y1="540" x2="190" y2="566" marker-end="url(#arrow)"/>
+
+  <line class="lead" x1="290" y1="267" x2="304" y2="267"/>
+  <text class="ts" x="308" y="261" fill="#d1495b">kein 325 V &#8594;</text>
+  <text class="ts" x="308" y="276">Eingang &#183; BR1 &#183; NTC &#183; R1</text>
+  <line class="lead" x1="290" y1="349" x2="304" y2="349"/>
+  <text class="ts" x="308" y="343" fill="#d1495b">VCC pulsiert &#8594;</text>
+  <text class="ts" x="308" y="358">Hiccup: &#220;berlast / Regelkreis</text>
+  <line class="lead" x1="290" y1="513" x2="304" y2="513"/>
+  <text class="ts" x="308" y="507" fill="#d1495b">instabil / zu niedrig &#8594;</text>
+  <text class="ts" x="308" y="522">weiter zu Schritt &#9318;</text>
+
+  <text class="ts" x="250" y="656" text-anchor="middle" fill="#d1495b">&#9888; Unter Spannung nur mit Trenntrafo + Differenztastkopf</text>
+</svg>
