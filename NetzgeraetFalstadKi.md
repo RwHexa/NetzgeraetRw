@@ -25,6 +25,31 @@ Ein Schaltnetzteil taktet mit ~65 kHz. Damit Falstad das sauber rechnet:
 
 ---
 
+## 🗺️ Detaillierter Schaltplan (zum Nachbauen)
+
+Dieser Plan zeigt jeden Knoten. **Gleiche Netznamen** (`VOUT`, `GATE`, `CONTROL`, `FB`) sind in Falstad **derselbe Knoten** — du kannst sie entweder direkt verdrahten oder in Falstad als *Labeled Node* (`Draw → Outputs and Labels → Add Labeled Node`) gleich benennen. Die Schaltung ist **nicht isoliert** (eine gemeinsame Masse).
+
+![Detaillierter Falstad-Schaltplan des Sperrwandlers](falstad_schaltplan.png)
+
+### Verdrahtungs-Checkliste (Knoten für Knoten)
+
+| Knoten | Verbindet |
+|---|---|
+| **VIN** | V1 (+) · T1 Primär oben |
+| **DRAIN** | T1 Primär unten · Q1 Drain · (Snubber optional) |
+| **GATE** | Q1 Gate · Komparator‑Ausgang (U1) |
+| **RAMP** | Sägezahn‑Quelle · Komparator **−**‑Eingang (U1) |
+| **CONTROL** | Fehlerverstärker‑Ausgang (U2) · Komparator **+**‑Eingang (U1) |
+| **SEK** | T1 Sekundär · D2 Anode |
+| **VOUT** | D2 Kathode · C1 (+) · RL · R8 (oben) |
+| **FB** | R8/R9‑Mittelabgriff · U2 **−**‑Eingang · RC‑Glied (Rf/Cf) |
+| **REF** | 2,5‑V‑Quelle · U2 **+**‑Eingang |
+| **GND** | V1 (−) · Q1 Source · T1 Sekundär (andere Seite) · C1/RL (−) · R9 · alle Quellen‑Massen |
+
+> 💡 **Reihenfolge, die selten hakt:** erst die **Leistungsstufe** (V1 → T1 → Q1 → D2 → C1/RL) aufbauen und mit einer festen Gate‑Rechteckquelle testen (schaltet der MOSFET, kommt Spannung raus?). Dann **U1 + Sägezahn** dranhängen (PWM steht). Zuletzt **U2 + Teiler + Referenz** — jetzt schließt sich der Regelkreis.
+
+---
+
 ## 🛠️ Der Aufbau in 7 Schritten
 
 Bauteile kommen aus dem **Draw**‑Menü (Kategorien heißen je nach Version leicht anders). Werte per **Rechtsklick → Edit** einstellen.

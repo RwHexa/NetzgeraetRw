@@ -1,0 +1,182 @@
+<svg role="img" viewBox="0 0 860 690" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="'Segoe UI', system-ui, sans-serif">
+  <title>Falstad-Nachbau: detaillierter Schaltplan des vereinfachten Sperrwandlers</title>
+  <desc>Nicht isolierter Flyback: Var-Rail 310 V, Trafo, MOSFET, Sekundaerdiode, Ausgangskondensator und Last; PWM aus Saegezahn und Komparator; Fehlerverstaerker mit TL431-Ersatz-Opamp, Referenz 2,5 V und Teiler R8/R9. Gleiche Netznamen sind verbundene Knoten.</desc>
+  <style>
+    text{fill:#1c1c1c;}
+    .v{fill:#5a5f66;font-size:11px;}        /* Werte */
+    .r{font-weight:600;font-size:12px;}     /* Referenz */
+    .sec{font-weight:600;font-size:13px;fill:#33383f;}
+    .pin{fill:#5a5f66;font-size:10px;}
+    .wire{stroke:#222;stroke-width:1.6;fill:none;stroke-linecap:round;}
+    .sym{stroke:#222;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+    .fillw{fill:#ffffff;}
+    .nl{fill:#e6f1fb;stroke:#3a78cc;stroke-width:1;}
+    .nlt{fill:#17395f;font-size:11px;font-weight:600;}
+    .jd{fill:#222;}
+  </style>
+  <defs>
+    <g id="gnd" class="sym"><path d="M0 0 V8"/><path d="M-7 8 H7"/><path d="M-4.5 11 H4.5"/><path d="M-2 14 H2"/></g>
+    <g id="res" class="sym"><path d="M-20 0 H-14"/><rect class="fillw" x="-14" y="-5" width="28" height="10"/><path d="M14 0 H20"/></g>
+    <g id="capNP" class="sym"><path d="M0 -12 V-3"/><path d="M-8 -3 H8"/><path d="M-8 3 H8"/><path d="M0 3 V12"/></g>
+    <g id="capPol" class="sym"><path d="M0 -12 V-3.5"/><path d="M-8 -3.5 H8"/><path d="M-8 4 A9 5 0 0 0 8 4"/><path d="M0 4 V12"/></g>
+    <g id="diode" class="sym"><path d="M-16 0 H-6"/><path class="fillw" d="M-6 -7 L-6 7 L6 0 Z"/><path d="M6 -7 V7"/><path d="M6 0 H16"/></g>
+  </defs>
+  <rect x="0" y="0" width="860" height="690" fill="#ffffff"/>
+
+  <text x="430" y="26" text-anchor="middle" font-size="16" font-weight="600">Falstad-Nachbau — detaillierter Schaltplan (Sperrwandler, nicht isoliert)</text>
+  <line x1="20" y1="350" x2="840" y2="350" stroke="#d9dce1" stroke-dasharray="4 5"/>
+  <line x1="20" y1="486" x2="840" y2="486" stroke="#d9dce1" stroke-dasharray="4 5"/>
+  <text class="sec" x="26" y="52">① Leistungsstufe (Flyback)</text>
+  <text class="sec" x="26" y="372">② PWM: Sägezahn + Komparator</text>
+  <text class="sec" x="26" y="508">③ Fehlerverstärker + Rückkopplung</text>
+
+  <!-- ===== Band 1 ===== -->
+  <!-- V1 Var Rail -->
+  <circle class="sym" cx="90" cy="150" r="18"/>
+  <text x="90" y="146" text-anchor="middle" font-size="13">+</text>
+  <text class="r" x="60" y="150" text-anchor="end">V1</text>
+  <text class="v" x="60" y="165" text-anchor="end">310 V</text>
+  <path class="wire" d="M90 132 V96 H235"/>
+  <path class="wire" d="M90 168 V196"/>
+  <use xlink:href="#gnd" href="#gnd" x="90" y="196"/>
+
+  <!-- T1 primary coil x=235, secondary x=315 -->
+  <text class="r" x="275" y="72" text-anchor="middle">T1</text>
+  <text class="v" x="275" y="86" text-anchor="middle">2,5 mH · Np:Ns = 8 · k = 0,99</text>
+  <path class="sym" d="M235 96 V106 a11 11 0 0 1 0 22 a11 11 0 0 1 0 22 a11 11 0 0 1 0 22 a11 11 0 0 1 0 22 V210"/>
+  <path class="sym" d="M315 96 V106 a11 11 0 0 0 0 22 a11 11 0 0 0 0 22 a11 11 0 0 0 0 22 a11 11 0 0 0 0 22 V210"/>
+  <line class="sym" x1="270" y1="100" x2="270" y2="210"/>
+  <line class="sym" x1="280" y1="100" x2="280" y2="210"/>
+  <circle class="jd" cx="223" cy="108" r="2.4"/>
+  <circle class="jd" cx="327" cy="200" r="2.4"/>
+
+  <!-- Q1 MOSFET box under primary -->
+  <path class="wire" d="M235 210 V236"/>
+  <rect class="sym" x="213" y="236" width="44" height="60" rx="3"/>
+  <text class="r" x="235" y="262" text-anchor="middle">Q1</text>
+  <text class="pin" x="235" y="278" text-anchor="middle">N-MOS</text>
+  <text class="pin" x="239" y="232" >D</text>
+  <text class="pin" x="200" y="262" text-anchor="end">G</text>
+  <text class="pin" x="239" y="308" >S</text>
+  <path class="wire" d="M213 262 H150"/>
+  <path class="wire" d="M235 296 V320"/>
+  <use xlink:href="#gnd" href="#gnd" x="235" y="320"/>
+  <!-- GATE net label -->
+  <rect class="nl" x="104" y="252" width="46" height="20" rx="5"/>
+  <text class="nlt" x="127" y="266" text-anchor="middle">GATE</text>
+
+  <!-- Secondary rectification -->
+  <path class="wire" d="M315 96 H430"/>
+  <use xlink:href="#diode" href="#diode" x="448" y="96"/>
+  <text class="r" x="448" y="80" text-anchor="middle">D2</text>
+  <text class="v" x="448" y="122" text-anchor="middle">Schottky</text>
+  <path class="wire" d="M464 96 H800"/>
+  <text class="r" x="762" y="86">+12 V OUT</text>
+  <path class="wire" d="M315 210 V236"/>
+  <use xlink:href="#gnd" href="#gnd" x="315" y="236"/>
+
+  <!-- Cout -->
+  <path class="wire" d="M545 96 V138"/>
+  <use xlink:href="#capPol" href="#capPol" x="545" y="150"/>
+  <text x="533" y="146" text-anchor="end" font-size="11">+</text>
+  <text class="r" x="562" y="146">C1</text>
+  <text class="v" x="562" y="160">220 µF</text>
+  <path class="wire" d="M545 162 V232"/>
+  <use xlink:href="#gnd" href="#gnd" x="545" y="232"/>
+  <circle class="jd" cx="545" cy="96" r="2.4"/>
+
+  <!-- Rload -->
+  <path class="wire" d="M630 96 V130"/>
+  <use xlink:href="#res" href="#res" transform="translate(630,150) rotate(90)"/>
+  <text class="r" x="648" y="146">RL</text>
+  <text class="v" x="648" y="160">12 Ω</text>
+  <path class="wire" d="M630 170 V232"/>
+  <use xlink:href="#gnd" href="#gnd" x="630" y="232"/>
+  <circle class="jd" cx="630" cy="96" r="2.4"/>
+
+  <!-- VOUT net label -->
+  <circle class="jd" cx="712" cy="96" r="2.4"/>
+  <path class="wire" d="M712 96 V116"/>
+  <rect class="nl" x="688" y="116" width="48" height="20" rx="5"/>
+  <text class="nlt" x="712" y="130" text-anchor="middle">VOUT</text>
+
+  <!-- ===== Band 2: PWM ===== -->
+  <!-- Sägezahn-Quelle -->
+  <circle class="sym" cx="120" cy="412" r="18"/>
+  <path class="sym" d="M111 420 L118 404 L118 420 L125 404 L125 420"/>
+  <text class="r" x="120" y="382" text-anchor="middle">Sägezahn</text>
+  <text class="v" x="120" y="452" text-anchor="middle">65 kHz · 0–5 V</text>
+  <path class="wire" d="M120 430 V468"/>
+  <use xlink:href="#gnd" href="#gnd" x="120" y="468"/>
+  <path class="wire" d="M138 412 H176 V400 H250"/>
+
+  <!-- Komparator U1 -->
+  <path class="sym fillw" d="M250 384 L250 440 L306 412 Z"/>
+  <text class="pin" x="258" y="404">−</text>
+  <text class="pin" x="258" y="428">+</text>
+  <path class="wire" d="M220 424 H250"/>
+  <path class="wire" d="M306 412 H344"/>
+  <text class="r" x="278" y="462" text-anchor="middle">U1 · Komparator</text>
+  <!-- CONTROL into + input -->
+  <rect class="nl" x="150" y="414" width="70" height="20" rx="5"/>
+  <text class="nlt" x="185" y="428" text-anchor="middle">CONTROL</text>
+  <!-- GATE out -->
+  <rect class="nl" x="344" y="402" width="46" height="20" rx="5"/>
+  <text class="nlt" x="367" y="416" text-anchor="middle">GATE</text>
+
+  <!-- ===== Band 3: Fehlerverstärker ===== -->
+  <!-- Referenz 2,5 V -->
+  <circle class="sym" cx="120" cy="566" r="16"/>
+  <text x="120" y="562" text-anchor="middle" font-size="12">+</text>
+  <text class="r" x="120" y="536" text-anchor="middle">Referenz</text>
+  <text class="v" x="144" y="562" text-anchor="start">2,5 V</text>
+  <path class="wire" d="M120 582 V612"/>
+  <use xlink:href="#gnd" href="#gnd" x="120" y="612"/>
+  <path class="wire" d="M136 566 H250"/>
+
+  <!-- Fehlerverstärker U2 -->
+  <path class="sym fillw" d="M250 524 L250 580 L306 552 Z"/>
+  <text class="pin" x="258" y="544">−</text>
+  <text class="pin" x="258" y="568">+</text>
+  <path class="wire" d="M230 540 H250"/>
+  <path class="wire" d="M306 552 H344"/>
+  <text class="r" x="278" y="600" text-anchor="middle">U2 · Fehlerverstärker</text>
+  <!-- FB into − input -->
+  <circle class="jd" cx="230" cy="540" r="2.4"/>
+  <rect class="nl" x="150" y="530" width="64" height="20" rx="5"/>
+  <text class="nlt" x="182" y="544" text-anchor="middle">FB</text>
+  <path class="wire" d="M214 540 H230"/>
+  <!-- CONTROL out -->
+  <rect class="nl" x="344" y="542" width="70" height="20" rx="5"/>
+  <text class="nlt" x="379" y="556" text-anchor="middle">CONTROL</text>
+  <!-- RC-Kompensation (Rf + Cf) von OUT zurück auf − -->
+  <path class="wire" d="M322 552 V500 H313"/>
+  <use xlink:href="#res" href="#res" x="293" y="500"/>
+  <text class="v" x="293" y="491" text-anchor="middle">Rf 100k</text>
+  <path class="wire" d="M273 500 H262"/>
+  <use xlink:href="#capNP" href="#capNP" transform="translate(250,500) rotate(90)"/>
+  <text class="v" x="250" y="519" text-anchor="middle">Cf 1nF</text>
+  <path class="wire" d="M238 500 H230 V540"/>
+  <circle class="jd" cx="322" cy="552" r="2.4"/>
+
+  <!-- Teiler R8/R9 -->
+  <rect class="nl" x="632" y="502" width="48" height="20" rx="5"/>
+  <text class="nlt" x="656" y="516" text-anchor="middle">VOUT</text>
+  <path class="wire" d="M656 522 V536"/>
+  <use xlink:href="#res" href="#res" transform="translate(656,552) rotate(90)"/>
+  <text class="r" x="674" y="548">R8</text>
+  <text class="v" x="674" y="562">38k</text>
+  <path class="wire" d="M656 572 V582"/>
+  <circle class="jd" cx="656" cy="582" r="2.4"/>
+  <use xlink:href="#res" href="#res" transform="translate(656,600) rotate(90)"/>
+  <text class="r" x="674" y="596">R9</text>
+  <text class="v" x="674" y="610">10k</text>
+  <path class="wire" d="M656 620 V636"/>
+  <use xlink:href="#gnd" href="#gnd" x="656" y="636"/>
+  <!-- FB abgriff -->
+  <path class="wire" d="M656 582 H600"/>
+  <rect class="nl" x="554" y="572" width="46" height="20" rx="5"/>
+  <text class="nlt" x="577" y="586" text-anchor="middle">FB</text>
+
+  <text class="v" x="430" y="676" text-anchor="middle">Nicht isoliert (gemeinsame Masse). Gleiche Netznamen (VOUT · GATE · CONTROL · FB) = elektrisch verbundene Knoten. Trafo-Dot/Phase in Falstad ggf. spiegeln.</text>
+</svg>

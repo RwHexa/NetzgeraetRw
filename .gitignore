@@ -8,3 +8,14 @@ ehthumbs.db
 ~$*
 *.tmp
 *.bak
+
+# KiCad (regenerierbar / lokal)
+*-backups/
+fp-info-cache
+*.kicad_prl
+_autosave-*
+
+# SKiDL-Ausgaben (regenerierbar)
+*_sklib.py
+*.erc
+*.log
