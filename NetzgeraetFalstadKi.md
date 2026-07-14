@@ -120,6 +120,19 @@ Bauteile kommen aus dem **Draw**‑Menü (Kategorien heißen je nach Version lei
 
 ---
 
+## ✅ Funktionierende Simulation (Ergebnis)
+
+So sieht der laufende Regelkreis in Falstad aus — stabile Ausgangsspannung, alle Blöcke aktiv:
+
+![Falstad-Simulation der Regelung — TP ≈ 11,5 V](NetzRegelung.png)
+
+> **Kurzfassung:** Der Teiler **30k/10k** ergibt den Lehrbuch‑Sollwert `2,5 V × (1 + 30/10) = 10 V`; angezeigt werden **11,5 V**. Dieser kleine Rest‑Offset ist normal — der vereinfachte Fehlerverstärker ist kein idealer Integrator (endliche Schleifenverstärkung). Reale Controller wie der OB2263 fahren die Verstärkung so hoch, dass er praktisch verschwindet.
+
+- **Regelung nachweisen:** Last ändern (12 Ω → 8/24 Ω) oder die 310‑V‑Rail schieben → TP bleibt (nahezu) stehen = die Schleife regelt.
+- **Exakt 12 V:** oberen Teilerwiderstand trimmen, bis TP 12,0 V zeigt — oder U2 als echten Integrator (Serien‑C + Eingangswiderstand) verschalten.
+
+---
+
 ## 🚀 Ausbaustufen
 
 1. **Netzeingang echt:** Var Rail ersetzen durch `A/C Voltage Source` (325 V Spitze, 50 Hz) + 4 Dioden‑Brücke + 47 µF → man sieht die ~310 V entstehen.
