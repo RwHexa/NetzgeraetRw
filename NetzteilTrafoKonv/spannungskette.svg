@@ -1,0 +1,91 @@
+<svg role="img" viewBox="0 0 920 440" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
+  <title>Spannungsabbau im symmetrischen Trafo-Netzteil</title>
+  <desc>Signalkette von 230 V Wechselspannung ueber zwei Netztrafos und die Brueckengleichrichtung mit Mittelpunkt auf plus und minus 33 V Rohspannung. Danach teilt sich der Weg in zwei spiegelbildliche Zweige: MOSFET-Vorregler T1 bzw. Q1 auf plus und minus 25 V, anschliessend Festspannungsregler 78xx bzw. 79xx auf plus und minus 15 V. Unter jeder Stufe ist die Verlustleistung bei 150 Milliampere angegeben.</desc>
+  <style>
+    :root{--p:#1c1c1c;--s:#5a5f66;--t:#4a4f55;--b:#c2c6cc;}
+    .ts{font-size:11.5px;fill:var(--s);} .th{font-size:14px;font-weight:600;fill:var(--p);}
+    .tv{font-size:13px;font-weight:600;}
+    .tl{font-size:11px;fill:#7a7f86;}
+    .arr{stroke:var(--t);stroke-width:1.6;fill:none;}
+    .c-net rect{fill:#fbe7cf;stroke:#d38b1f;stroke-width:1.2;}
+    .c-net .th{fill:#7a4a09;} .c-net .ts,.c-net .tv{fill:#8a5a1a;}
+    .c-raw rect{fill:#e5e7eb;stroke:#9aa0a6;stroke-width:1.2;}
+    .c-raw .th{fill:#33383f;} .c-raw .ts,.c-raw .tv{fill:#5a5f66;}
+    .c-pre rect{fill:#dce9f7;stroke:#4a7fb5;stroke-width:1.2;}
+    .c-pre .th{fill:#1d4670;} .c-pre .ts,.c-pre .tv{fill:#2f6094;}
+    .c-out rect{fill:#d9ecdf;stroke:#3f8a5c;stroke-width:1.2;}
+    .c-out .th{fill:#1e5236;} .c-out .ts,.c-out .tv{fill:#2d6e48;}
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="920" height="440" fill="#ffffff"/>
+
+  <text class="th" x="460" y="30" text-anchor="middle" font-size="17">Spannungsabbau in vier Stufen &#8212; wo die W&#228;rme entsteht</text>
+  <text class="tl" x="460" y="50" text-anchor="middle">Zahlen f&#252;r &#177;15 V bei 150 mA Laststrom je Schiene</text>
+
+  <!-- gemeinsamer Teil -->
+  <g class="c-net"><rect x="18" y="192" width="118" height="56" rx="8"/>
+    <text class="th" x="77" y="213" text-anchor="middle" dominant-baseline="central">Netz</text>
+    <text class="tv" x="77" y="233" text-anchor="middle" dominant-baseline="central">230 V ~</text></g>
+
+  <g class="c-net"><rect x="166" y="192" width="132" height="56" rx="8"/>
+    <text class="th" x="232" y="211" text-anchor="middle" dominant-baseline="central">TR1 + TR2</text>
+    <text class="tv" x="232" y="231" text-anchor="middle" dominant-baseline="central">2 &#215; 24 V ~</text></g>
+  <text class="ts" x="232" y="266" text-anchor="middle">Mittelpunkt = GND</text>
+
+  <g class="c-raw"><rect x="328" y="192" width="132" height="56" rx="8"/>
+    <text class="th" x="394" y="211" text-anchor="middle" dominant-baseline="central">B1 &#183; C1 / C12</text>
+    <text class="tv" x="394" y="231" text-anchor="middle" dominant-baseline="central">&#177; 33 V roh</text></g>
+  <text class="ts" x="394" y="266" text-anchor="middle">Brumm 6,8 V Sp-Sp (100 Hz)</text>
+  <text class="ts" x="394" y="282" text-anchor="middle">im Leerlauf bis &#177;37 V!</text>
+
+  <!-- Pfeile gemeinsamer Teil -->
+  <path class="arr" d="M136 220 H160" marker-end="url(#arrow)"/>
+  <path class="arr" d="M298 220 H322" marker-end="url(#arrow)"/>
+
+  <!-- Aufteilung -->
+  <path class="arr" d="M460 220 H484 V120 H514" marker-end="url(#arrow)"/>
+  <path class="arr" d="M460 220 H484 V320 H514" marker-end="url(#arrow)"/>
+
+  <!-- positiver Zweig -->
+  <g class="c-pre"><rect x="520" y="92" width="140" height="56" rx="8"/>
+    <text class="th" x="590" y="111" text-anchor="middle" dominant-baseline="central">T1 &#183; IRF640</text>
+    <text class="tv" x="590" y="131" text-anchor="middle" dominant-baseline="central">+ 25 V</text></g>
+  <text class="ts" x="590" y="166" text-anchor="middle">8 V &#8594; <tspan font-weight="600">1,2 W</tspan> &#183; kein K&#252;hlk&#246;rper</text>
+
+  <g class="c-out"><rect x="700" y="92" width="140" height="56" rx="8"/>
+    <text class="th" x="770" y="111" text-anchor="middle" dominant-baseline="central">IC1 &#183; 78xx</text>
+    <text class="tv" x="770" y="131" text-anchor="middle" dominant-baseline="central">+ 15 V</text></g>
+  <text class="ts" x="770" y="166" text-anchor="middle">10 V &#8594; <tspan font-weight="600">1,5 W</tspan> &#183; SK104</text>
+
+  <path class="arr" d="M660 120 H694" marker-end="url(#arrow)"/>
+  <path class="arr" d="M840 120 H884" marker-end="url(#arrow)"/>
+  <text class="th" x="884" y="105" text-anchor="end" fill="#2d6e48">X2-3</text>
+
+  <!-- negativer Zweig -->
+  <g class="c-pre"><rect x="520" y="292" width="140" height="56" rx="8"/>
+    <text class="th" x="590" y="311" text-anchor="middle" dominant-baseline="central">Q1 &#183; IRF9530</text>
+    <text class="tv" x="590" y="331" text-anchor="middle" dominant-baseline="central">&#8722; 25 V</text></g>
+  <text class="ts" x="590" y="366" text-anchor="middle">8 V &#8594; <tspan font-weight="600">1,2 W</tspan> &#183; kein K&#252;hlk&#246;rper</text>
+
+  <g class="c-out"><rect x="700" y="292" width="140" height="56" rx="8"/>
+    <text class="th" x="770" y="311" text-anchor="middle" dominant-baseline="central">IC2 &#183; 79xx</text>
+    <text class="tv" x="770" y="331" text-anchor="middle" dominant-baseline="central">&#8722; 15 V</text></g>
+  <text class="ts" x="770" y="366" text-anchor="middle">10 V &#8594; <tspan font-weight="600">1,5 W</tspan> &#183; SK104</text>
+
+  <path class="arr" d="M660 320 H694" marker-end="url(#arrow)"/>
+  <path class="arr" d="M840 320 H884" marker-end="url(#arrow)"/>
+  <text class="th" x="884" y="305" text-anchor="end" fill="#2d6e48">X2-1</text>
+
+  <!-- Erlaeuterung Vorregler -->
+  <path d="M590 172 V196 M590 268 V292" stroke="#4a7fb5" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+  <rect x="470" y="200" width="240" height="60" rx="8" fill="#f2f7fc" stroke="#4a7fb5" stroke-width="1" stroke-dasharray="4 3"/>
+  <text class="ts" x="590" y="216" text-anchor="middle" fill="#2f6094" font-weight="600">Vorregler = Source-Folger</text>
+  <text class="ts" x="590" y="233" text-anchor="middle" fill="#2f6094">R1&#183;C5 = 1 s &#8594; Brumm weg</text>
+  <text class="ts" x="590" y="249" text-anchor="middle" fill="#2f6094">ZD30 deckelt auf 25 V</text>
+
+  <text class="tl" x="18" y="418">Wirkungsgrad je Schiene: 2,25 W nutzbar bei 5,0 W Aufnahme &#8594; rund 45 % &#8212; typisch f&#252;r ein Linearnetzteil.</text>
+</svg>
