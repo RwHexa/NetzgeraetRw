@@ -30,5 +30,6 @@ Alle selbst erstellten Diagramme liegen als `.svg` (Quelle) **und** `.png` (2×)
 - ⚠️ **Fremde Bilder** (nur zu Lern‑/Referenzzwecken): einige Bitmap‑Schaltbilder und Fotos stammen aus dem Web und unterliegen fremdem Urheberrecht — u. a. `Schaltplan_vollstaendig.jpg` (Wasserzeichen ornatepixels.com), `Schaltplan.jpg` / `SchaltplanKl.JPG`, `PlatineKl.JPG`. **Nicht für Weiterverbreitung.** Vor einer etwaigen Veröffentlichung entfernen oder durch eigene Nachzeichnungen ersetzen.
 
 ---
+![Projektkarte](netzteilschematic.png)
 
 *Werkstattbericht · RwTec · 2026 · erstellt mit Claude Code*
